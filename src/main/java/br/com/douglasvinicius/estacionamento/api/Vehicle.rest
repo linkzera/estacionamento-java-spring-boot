@@ -1,0 +1,50 @@
+@url = http://localhost:8080
+###
+
+### Get all vehicles
+GET {{url}}/vehicle HTTP/1.1
+
+### Get vehicle by id 
+GET {{url}}/vehicle/1 HTTP/1.1
+ 
+### Get vehicle by plate
+GET {{url}}/vehicle/plate/ABC-1234 HTTP/1.1
+
+### Get vehicle by type
+GET {{url}}/vehicle/type/Car HTTP/1.1
+
+### Get vehicle by color
+GET {{url}}/vehicle/color/Blue HTTP/1.1
+
+### Get vehicle by brand
+GET {{url}}/vehicle/brand/Toyota HTTP/1.1
+
+### Create vehicle
+POST {{url}}/vehicle HTTP/1.1
+Content-Type: application/json
+
+{
+  "brand": "Toyota",
+  "model": "Corolla",
+  "color": "Blue",
+  "plate": "ABC-1234",
+  "type": "CAR",
+  "establishment": {
+    "id": 1
+  }
+}
+
+### Update vehicle
+PATCH {{url}}/vehicle/1 HTTP/1.1
+Content-Type: application/json
+
+{
+  "brand": "BMW",
+  "model": "X5",
+  "color": "Black",
+  "plate": "XYZ-1234",
+  "type": "Car"
+}
+
+### Delete vehicle
+DELETE {{url}}/vehicle/1 HTTP/1.1

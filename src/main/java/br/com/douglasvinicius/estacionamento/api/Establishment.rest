@@ -1,0 +1,40 @@
+@url = http://localhost:8080
+###
+
+### Get all establishments
+GET {{url}}/establishment HTTP/1.1
+Accept: application/xml
+
+### Get establishment by id
+GET {{url}}/establishment/4 HTTP/1.1
+# Accept: application/xml
+
+### Create establishment
+POST {{url}}/establishment HTTP/1.1
+Content-Type: application/json
+
+{
+  "name": "Lilla Park",
+  "ein": "50322233211",
+  "address": "778 Breitenberg Key",
+  "phone": "400-650-7636",
+  "parkingSpacesCar": 246,
+  "parkingSpacesMotorcycle": 908
+}
+
+### Update establishment
+PATCH {{url}}/establishment/1 HTTP/1.1
+Content-Type: application/json
+
+{
+  "parkingSpacesCar": 500,
+  "parkingSpacesMotorcycle": 200
+}
+
+### register vehicle 
+PUT {{url}}/establishment/1/vehicle HTTP/1.1
+Content-Type: application/json
+
+{
+  "vehicleId": 1
+}
